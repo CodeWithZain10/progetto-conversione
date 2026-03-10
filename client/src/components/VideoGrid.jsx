@@ -2,7 +2,7 @@ import React from 'react';
 import VideoCard from './VideoCard';
 import './VideoGrid.css';
 
-const VideoGrid = ({ title, data, onVideoClick, showBrowseAll = false, onBrowseAll }) => {
+const VideoGrid = ({ title, data, onVideoClick, showBrowseAll = false, onBrowseAll, onToggleFavorite, onRemoveFavoriteRequest, favorites }) => {
   return (
     <section className="video-grid-section">
       <div className="completehome">
@@ -26,7 +26,7 @@ const VideoGrid = ({ title, data, onVideoClick, showBrowseAll = false, onBrowseA
         <div className="video-grid">
           {data.map((video) => (
             <div key={video.id} className="video-grid-item">
-              <VideoCard video={video} onClick={onVideoClick} />
+              <VideoCard video={video} onClick={onVideoClick} onToggleFavorite={onToggleFavorite} onRemoveFavoriteRequest={onRemoveFavoriteRequest} favorites={favorites} />
             </div>
           ))}
         </div>

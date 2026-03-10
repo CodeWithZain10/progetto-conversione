@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './VideoCard.css';
 
-const VideoCard = ({ video, onClick }) => {
+const VideoCard = ({ video, onClick, onToggleFavorite, onRemoveFavoriteRequest, favorites = [] }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isRemoveHovered, setIsRemoveHovered] = useState(false);
   const videoRef = useRef(null);
 
   // Use useEffect to handle play/pause reliably
@@ -28,8 +29,19 @@ const VideoCard = ({ video, onClick }) => {
     console.log(`Action: ${action} for ${video.episodeTitle}`);
     if (action === 'play' && onClick) {
       onClick(video);
+    } else if (action === 'add') {
+      const isFav = favorites.some((fav) => fav.id === video.id);
+      if (isFav && onRemoveFavoriteRequest) {
+        // Request confirmation modal to remove
+        onRemoveFavoriteRequest(video);
+      } else if (!isFav && onToggleFavorite) {
+        // Direct add
+        onToggleFavorite(video);
+      }
     }
   };
+
+  const isFavorite = favorites.some((fav) => fav.id === video.id);
 
   // Correctly handle assets from public folder
   const getAssetPath = (path) => {
@@ -80,12 +92,30 @@ const VideoCard = ({ video, onClick }) => {
         <div className="info-top">
           <span className="video-title">{video.episodeTitle}</span>
           <div className="action-buttons">
-            <button className="action-btn" onClick={(e) => handleActionClick(e, 'play')}>
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-            </button>
-            <button className="action-btn" onClick={(e) => handleActionClick(e, 'add')}>
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
-            </button>
+            <div className="tooltip-container">
+              <button className="action-btn" onClick={(e) => handleActionClick(e, 'play')}>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+              </button>
+              <span className="tooltip-text">Play now</span>
+            </div>
+            <div className="tooltip-container">
+              <button 
+                className="action-btn" 
+                onClick={(e) => handleActionClick(e, 'add')} 
+                style={{ color: isFavorite ? '#fff' : 'inherit', borderColor: isFavorite ? '#fff' : '' }}
+                onMouseEnter={() => isFavorite && setIsRemoveHovered(true)}
+                onMouseLeave={() => isFavorite && setIsRemoveHovered(false)}
+              >
+                {isFavorite ? (
+                   // Minus icon when in favorites
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z" /></svg>
+                ) : (
+                  // The original plus icon
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+                )}
+              </button>
+              <span className="tooltip-text">{isFavorite ? "Remove it" : "Add it"}</span>
+            </div>
             <button className="action-btn" onClick={(e) => handleActionClick(e, 'share')}>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z" /></svg>
             </button>
