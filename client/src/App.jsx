@@ -3,7 +3,13 @@ import Header from './components/Header';
 import VideoGrid from './components/VideoGrid';
 import VideoSlider from './components/VideoSlider';
 import SwiperVideoSlider from './components/SwiperVideoSlider';
-import { filmsData, seriesData, childrenFilmsData, childrenSeriesData, flattenSeriesData } from './data/originalData';
+import { 
+  filmsData, 
+  seriesData, 
+  childrenFilmsData, 
+  childrenSeriesData, 
+  flattenSeriesData 
+} from './data/clientData';
 import './App.css';
 
 function App() {
