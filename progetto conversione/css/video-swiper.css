@@ -1,0 +1,246 @@
+.land_second .video-swiper {
+  position: relative;
+}
+.land_second .video-swiper-video,
+.land_second .video-swiper-poster {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.land_second .video-swiper-poster {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+.land_second .video-swiper--paused .video-swiper-poster {
+  opacity: 1;
+}
+.land_second .video-swiper-progress {
+  position: absolute;
+  top: 0;
+  width: 0;
+  z-index: 2;
+  height: 10px;
+  background: #ff0000;
+}
+.land_second .video-swiper-sound {
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+.land_second .video-swiper-sound svg {
+  width: 32px;
+  height: 32px;
+  fill: rgba(255, 255, 255, 0.6);
+}
+.land_second .video-swiper-replay {
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3 ease-in, opacity 0.3 ease-in;
+}
+.land_second .video-swiper--ended .video-swiper-replay {
+  opacity: 1;
+  visibility: visible;
+}
+.land_second .video-swiper-replay svg {
+  width: 64px;
+  height: 64px;
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.land_second .video-swiper .swiper-wrapper {
+  z-index: 4;
+}
+.land_second .video-swiper .swiper-slide > *:not(.video-swiper-poster) {
+  z-index: 11;
+}
+
+.land_second .video-background-svg {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.videos__item .video-swiper {
+  position: relative;
+}
+.video-swiper-video,
+.video-swiper-poster {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.videos__item .video-swiper-poster {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+.videos__item .video-swiper--paused .video-swiper-poster {
+  opacity: 1;
+}
+.videos__item .video-swiper-progress {
+  position: absolute;
+  top: 0;
+  width: 0;
+  z-index: 2;
+  height: 10px;
+  background: #ff0000;
+}
+.videos__item .video-swiper-sound {
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+.videos__item .video-swiper-sound svg {
+  width: 32px;
+  height: 32px;
+  fill: rgba(255, 255, 255, 0.6);
+}
+.videos__item .video-swiper-replay {
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3 ease-in, opacity 0.3 ease-in;
+}
+.videos__item .video-swiper--ended .video-swiper-replay {
+  opacity: 1;
+  visibility: visible;
+}
+.videos__item .video-swiper-replay svg {
+  width: 64px;
+  height: 64px;
+  fill: rgba(255, 255, 255, 0.8);
+}
+.videos__item .video-swiper .swiper-wrapper {
+  z-index: 4;
+}
+.videos__item .video-swiper .swiper-slide > *:not(.video-swiper-poster) {
+  z-index: 11;
+}
+
+.videos__item .video-background-svg {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#myOverlay4s .video-swiper,
+#myOverlay6s .video-swiper {
+  position: relative;
+}
+.video-swiper-video,
+.video-swiper-poster {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#myOverlay4s .video-swiper-poster,
+#myOverlay6s .video-swiper-poster {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+#myOverlay4s .video-swiper--paused .video-swiper-poster,
+#myOverlay6s .video-swiper--paused .video-swiper-poster {
+  opacity: 1;
+}
+#myOverlay4s .video-swiper-progress,
+#myOverlay6s .video-swiper-progress {
+  position: absolute;
+  top: 0;
+  width: 0;
+  z-index: 2;
+  height: 10px;
+  background: #ff0000;
+}
+#myOverlay4s .video-swiper-sound,
+#myOverlay6s .video-swiper-sound {
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+#myOverlay4s .video-swiper-sound svg,
+#myOverlay6s .video-swiper-sound svg {
+  width: 32px;
+  height: 32px;
+  fill: rgba(255, 255, 255, 0.6);
+}
+#myOverlay4s .video-swiper-replay,
+#myOverlay6s .video-swiper-replay {
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3 ease-in, opacity 0.3 ease-in;
+}
+#myOverlay4s .video-swiper--ended .video-swiper-replay,
+#myOverlay6s .video-swiper--ended .video-swiper-replay {
+  opacity: 1;
+  visibility: visible;
+}
+#myOverlay4s .video-swiper-replay svg,
+#myOverlay6s .video-swiper-replay svg {
+  width: 64px;
+  height: 64px;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#myOverlay4s .video-swiper .swiper-wrapper,
+#myOverlay6s .video-swiper .swiper-wrapper {
+  z-index: 4;
+}
+#myOverlay4s .video-swiper .swiper-slide > *:not(.video-swiper-poster),
+#myOverlay6s .video-swiper .swiper-slide > *:not(.video-swiper-poster) {
+  z-index: 11;
+}
+
+#myOverlay4s .video-background-svg,
+#myOverlay6s .video-background-svg {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}

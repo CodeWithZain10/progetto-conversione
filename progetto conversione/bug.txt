@@ -1,0 +1,7 @@
+in fullscreen player  nn compare la playlist a destra-
+chiudendo il ,player rimane il fullscreen  nella pagina -
+continue watching button  film non funziona , mancano i related  film -
+tutti i landing serie tv sono uguali  .
+
+inserie in landing button plus collegato a hover video 
+da tradurre  tutti i tooltip  per data-tooltip

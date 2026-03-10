@@ -1,0 +1,39 @@
+film  nuove uscite 
+
+
+
+
+
+
+film  Documentary
+film  Horror
+film  Dramatic
+film  War
+film  fiction
+ film Catastrophic
+ film Adventure
+ film Comics
+ film Animation
+ film Biographical
+ film Comedy
+ film Science fiction
+ film Fantasy/Fantastic
+ film Musical
+film  Historical
+ film Thriller
+ film Western
+ film Epic
+ film Yellow
+ film Grotesque
+ film Mythological
+ film Noir
+film  Politic
+ film Detective story
+ film Religious
+film  Sentimental
+ film Espionage
+ film Sporty
+ film Space Opera
+ film Drugs
+ ffilm Cars
+ film Motorcycles

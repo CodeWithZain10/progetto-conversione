@@ -1,0 +1,4 @@
+actors: "Clark Gable",
+    studios: "Worner Bross
+	
+	inserire in ricerca    actors e studios  e trailer
