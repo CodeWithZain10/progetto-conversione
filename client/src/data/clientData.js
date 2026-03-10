@@ -1,7 +1,3 @@
-// Client Website Data - Extracted from original HTML/JS source files
-// This file contains all the original data from the client website
-
-// Films Data - Original structure from films_data.js
 export const filmsData = [
   {
     season_id: 0,
