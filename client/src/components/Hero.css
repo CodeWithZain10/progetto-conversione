@@ -1,0 +1,217 @@
+/* Hero Section - Legacy Consolidated Styles */
+
+:root {
+    --swiper-theme-color: rgba(255, 255, 255, 0.8);
+    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-opacity: 0.4;
+    --swiper-navigation-color: rgba(255, 255, 255, 0.6);
+    --main-text-color: #fff;
+    --main-background-color: #242526;
+    --main-element-color: #fff;
+}
+
+.land_second {
+    color: var(--main-text-color);
+}
+
+.land_second .modal-header1 {
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+}
+
+.land_second #video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.land_second .video-bg-text {
+    position: absolute;
+    margin-top: 200px;
+    font-family: "Merriweather Sans", sans-serif;
+    color: #fff;
+    font-size: 60px;
+    padding: 4px;
+    left: 20%;
+    transform: translateX(-50%);
+    max-width: 80%;
+    letter-spacing: 2px;
+    z-index: 10;
+}
+
+.video-swiper-video,
+.video-swiper-poster {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.land_second .video-swiper-poster {
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.land_second .video-swiper--paused .video-swiper-poster {
+    opacity: 1;
+}
+
+.land_second .video-swiper-progress {
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: 2;
+    height: 10px;
+    background: #ff0000;
+}
+
+.land_second .video-swiper-sound {
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.land_second .video-swiper-sound svg {
+    width: 32px;
+    height: 32px;
+    fill: rgba(255, 255, 255, 0.6);
+}
+
+.land_second .video-swiper-replay {
+    position: absolute;
+    z-index: 12;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.land_second .video-swiper--ended .video-swiper-replay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.land_second .video-swiper-replay svg {
+    width: 64px;
+    height: 64px;
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+.land_second .video-swiper .swiper-wrapper {
+    z-index: 4;
+}
+
+.land_second .video-swiper .swiper-slide>*:not(.video-swiper-poster) {
+    z-index: 11;
+}
+
+.nav-main {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-main li {
+    padding: 8px;
+}
+
+.jmplino {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.land_second .modal__title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 666;
+}
+
+.land_second .playlist__dropdown {
+    z-index: 9999;
+    top: 48%;
+    left: 20%;
+    height: 100px;
+    margin-left: 0;
+    position: absolute;
+}
+
+.land_second .modal__view {
+    width: 300px;
+    position: absolute;
+    left: 30px;
+    top: 48%;
+    z-index: 9999;
+}
+
+.modal-view__button {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #66a3ff;
+    border-radius: 5px;
+    padding: 13px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.select {
+    background: #333;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.closebtn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1001;
+}
+
+/* Modal and Layout overrides to ensure parity */
+.modal-content {
+    background: transparent;
+    border: none;
+}
+
+.modal-xlg {
+    width: 100%;
+    margin: 0;
+}
+
+.video-swiper--paused .video-swiper-video {
+    opacity: 0;
+}

@@ -1,104 +1,43 @@
-/* Video Grid Styles */
+/* Video Grid - Pixel-Perfect Refinement */
 .video-grid-section {
-  padding: 30px 0;
+  padding: 0 4% 40px 4%;
   position: relative;
   z-index: 20;
 }
 
-.video-grid-header {
-  margin-bottom: 20px;
-}
-
-.video-grid-title {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.video-grid-browse {
-  color: #007bff;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.video-grid-browse:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-.video-grid-cursor {
-  color: #007bff;
-  margin-left: 5px;
-}
-
-.video-grid-container {
-  position: relative;
-}
-
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 10px 0;
 }
 
 .video-grid-item {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s;
 }
 
 /* Responsive Grid */
 @media (max-width: 1200px) {
   .video-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 18px;
-  }
-}
-
-@media (max-width: 992px) {
-  .video-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+  .video-grid-section {
+    padding: 0 20px 30px 20px;
+  }
+
   .video-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-    padding: 0 15px;
-  }
-  
-  .video-grid-section {
-    padding: 20px 0;
-  }
-  
-  .video-grid-title {
-    font-size: 20px;
+    gap: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .video-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    padding: 0 10px;
-  }
-  
-  .video-grid-section {
-    padding: 15px 0;
-  }
-  
-  .video-grid-title {
-    font-size: 18px;
-  }
-  
-  .video-grid-browse {
-    font-size: 14px;
+    gap: 8px;
   }
 }

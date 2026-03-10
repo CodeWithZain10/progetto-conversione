@@ -1,281 +1,100 @@
-/* Swiper Video Slider Styles */
-.swiper-video-slider-section {
-  padding: 30px 0;
+/* Swiper Video Slider Correction */
+
+.wraphome {
+  padding: 20px 0;
   position: relative;
-  z-index: 20;
-}
-
-.swiper-video-slider-header {
-  margin-bottom: 20px;
-}
-
-.swiper-video-slider-title {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.swiper-video-slider-browse {
-  color: #007bff;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.swiper-video-slider-browse:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-.swiper-video-slider-cursor {
-  color: #007bff;
-  margin-left: 5px;
+  width: 100%;
 }
 
 .swiper-video-slider-container {
   position: relative;
-  padding: 0 60px; /* Space for arrows */
+  padding: 0 60px;
+  width: 100%;
+  display: block;
 }
 
-/* Hide horizontal scrollbar */
-.mySwiper {
+/* Critical: Ensure Swiper doesn't stack vertically */
+.homeSlider {
+  width: 100%;
+  height: auto;
+  display: flex !important;
+  flex-direction: row !important;
   overflow: hidden !important;
 }
 
-.mySwiper .swiper-wrapper {
+.homeSlider .swiper-wrapper {
   display: flex !important;
-  transition-timing-function: ease !important;
+  flex-direction: row !important;
 }
 
-.mySwiper .swiper-slide {
-  height: auto !important;
-  width: auto !important;
-}
-
-.swiper-video-slide {
-  width: 100%;
-  height: 100%;
-  padding: 0 10px; /* Add padding for spacing */
-}
-
-/* Make video cards larger */
-.swiper-video-slide .video-card {
-  min-width: 300px; /* Minimum width */
-  max-width: 400px; /* Maximum width */
-  margin-bottom: 0;
-}
-
-.swiper-video-slide .video-thumbnail {
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  min-height: 200px; /* Minimum height */
-}
-
-/* Custom Navigation Arrows - Client Website Style */
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
+/* Title Styles */
+.completehome__title {
+  font-family: 'Merriweather Sans', sans-serif;
+  padding-left: 60px;
+  font-weight: 700;
+  margin-bottom: 20px;
   color: #fff;
-  margin-top: 0;
+  font-size: 24px;
 }
 
-.swiper-button-prev {
-  left: 10px;
+.completehome__value {
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.swiper-button-next {
-  right: 10px;
+.completehome__cursor {
+  margin-left: 5px;
+  color: #b3b3b3;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #fff;
-  transform: translateY(-50%) scale(1.1);
+/* Custom Navigation Arrows */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  background: rgba(0, 0, 0, 0.5);
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  color: #fff !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  margin-top: 0 !important;
 }
 
-.swiper-button-prev svg,
-.swiper-button-next svg {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
+.swiper-button-prev-custom::after,
+.swiper-button-next-custom::after {
+  font-size: 18px !important;
 }
 
-.swiper-button-prev:hover svg,
-.swiper-button-next:hover svg {
-  transform: scale(1.1);
+.swiper-button-prev-custom {
+  left: 5px !important;
 }
 
-/* Hide default Swiper navigation */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  display: none;
+.swiper-button-next-custom {
+  right: 5px !important;
 }
 
-/* Pagination Dots - Client Website Style */
-.swiper-pagination {
-  position: relative;
-  margin-top: 20px;
-  text-align: center;
+/* Pagination Dots */
+.swiper-pagination-custom {
+  bottom: -5px !important;
 }
 
-.swiper-pagination-bullet {
-  width: 20px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+.swiper-pagination-custom .swiper-pagination-bullet {
+  background: #fff !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
   opacity: 1;
-  transition: all 0.3s ease;
-  margin: 0 4px;
+  background: #e50914 !important;
 }
 
-.swiper-pagination-bullet-active {
-  background: #007bff;
-  width: 22px;
-  height: 10px;
-}
-
-.swiper-pagination-bullet:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .swiper-video-slider-section {
-    padding: 20px 0;
-  }
-  
-  .swiper-video-slider-title {
-    font-size: 20px;
-  }
-  
-  .swiper-video-slider-browse {
-    font-size: 14px;
-  }
-  
-  .swiper-video-slider-container {
-    padding: 0 50px;
-  }
-  
-  .swiper-button-prev,
-  .swiper-button-next {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .swiper-button-prev svg,
-  .swiper-button-next svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .swiper-button-prev {
-    left: 5px;
-  }
-  
-  .swiper-button-next {
-    right: 5px;
-  }
-  
-  .swiper-video-slide .video-card {
-    min-width: 250px;
-    max-width: 350px;
-  }
-  
-  .swiper-video-slide .video-thumbnail {
-    min-height: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  .swiper-video-slider-section {
-    padding: 15px 0;
-  }
-  
-  .swiper-video-slider-title {
+  .completehome__title {
+    padding-left: 20px;
     font-size: 18px;
   }
-  
-  .swiper-video-slider-browse {
-    font-size: 13px;
-  }
-  
+
   .swiper-video-slider-container {
-    padding: 0 45px;
+    padding: 0 40px;
   }
-  
-  .swiper-button-prev,
-  .swiper-button-next {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .swiper-button-prev svg,
-  .swiper-button-next svg {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .swiper-button-prev {
-    left: 5px;
-  }
-  
-  .swiper-button-next {
-    right: 5px;
-  }
-  
-  .swiper-pagination-bullet {
-    width: 16px;
-    height: 6px;
-    margin: 0 3px;
-  }
-  
-  .swiper-pagination-bullet-active {
-    width: 18px;
-    height: 8px;
-  }
-  
-  .swiper-video-slide .video-card {
-    min-width: 200px;
-    max-width: 300px;
-  }
-  
-  .swiper-video-slide .video-thumbnail {
-    min-height: 150px;
-  }
-  
-  .swiper-video-slide {
-    padding: 0 5px;
-  }
-}
-
-/* Ensure smooth scrolling */
-.mySwiper .swiper-wrapper {
-  scroll-behavior: smooth !important;
-}
-
-/* Hide scrollbar completely */
-.mySwiper::-webkit-scrollbar {
-  display: none !important;
-}
-
-.mySwiper {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
 }

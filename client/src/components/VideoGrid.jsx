@@ -2,29 +2,29 @@ import React from 'react';
 import VideoCard from './VideoCard';
 import './VideoGrid.css';
 
-const VideoGrid = ({ title, videos, showBrowseAll = false, onBrowseAll, onVideoClick }) => {
+const VideoGrid = ({ title, data, onVideoClick, showBrowseAll = false, onBrowseAll }) => {
   return (
     <section className="video-grid-section">
-      <div className="video-grid-header">
-        <h4 className="video-grid-title">
+      <div className="completehome">
+        <h4 className="completehome__title">
           {title} <span>&nbsp;&nbsp;</span>
           {showBrowseAll && (
             <>
               <span
-                className="video-grid-browse"
+                className="completehome__value"
                 onClick={onBrowseAll}
+                style={{ cursor: 'pointer', color: '#007bff' }}
               >
                 Browse All
               </span>
-              <span className="video-grid-cursor">></span>
+              <span className="completehome__cursor"> &gt; </span>
             </>
           )}
         </h4>
       </div>
-      
       <div className="video-grid-container">
         <div className="video-grid">
-          {videos.map((video) => (
+          {data.map((video) => (
             <div key={video.id} className="video-grid-item">
               <VideoCard video={video} onClick={onVideoClick} />
             </div>

@@ -1,0 +1,135 @@
+:root {
+  --swiper-theme-color: rgba(255, 255, 255, 0.8);
+  --swiper-pagination-bullet-inactive-color: #fff;
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
+  --swiper-navigation-color: rgba(255, 255, 255, 0.6);
+}
+.land_second #video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+.land_second .video-bg-text {
+  position: absolute;
+  margin-top: 200px;
+  font-family: "Merriweather Sans", sans-serif;
+  color: #fff;
+  font-size: 60px;
+  padding: 4px;
+  left: 20%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  letter-spacing: 2px;
+}
+
+.videos__item .vid_backgrounddd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #000;
+}
+
+#video-backgrounddd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #000;
+}
+.video-bg-text {
+  position: absolute;
+  margin-top: 200px;
+  font-family: "Merriweather Sans", sans-serif;
+  color: #fff;
+  font-size: 60px;
+  padding: 4px;
+  left: 20%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  letter-spacing: 2px;
+}
+
+.videos__item .video-swiper-poster {
+  width: 100%;
+  height: 100%;
+}
+
+.video-swiper-video,
+.video-swiper-poster {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#myOverlay4s,
+#myOverlay6s {
+  overflow-y: scroll;
+}
+
+#myOverlay4s #video-backgrounddfd,
+#myOverlay6s #video-backgrounddfdd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+#myOverlay4s .video-bg-text,
+#myOverlay6s .video-bg-text {
+  position: absolute;
+  bottom: 130px;
+  color: #fff;
+  font-size: 20px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+}
+
+#myOverlay4s .videos__item .video-swiper-poster,
+#myOverlay6s .videos__item .video-swiper-poster {
+  width: 100%;
+  height: 100%;
+}
+
+#myOverlay4s .video-swiper-video,
+#myOverlay4s .video-swiper-poster,
+#myOverlay6s .video-swiper-video,
+#myOverlay6s .video-swiper-poster {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
