@@ -95,17 +95,17 @@ function App() {
           if (selectedVideo.category === 'series') {
             const season = seriesData.find(s => s.season_id === selectedVideo.season_id);
             if (season) {
-               relatedVideos = season.season_videos.map(v => ({
-                 id: `series-${season.season_id}-${v.video_id}`,
-                 videoSrc: v.video_url,
-                 imgSrc: v.video_poster,
-                 episodeTitle: v.video_name,
-                 episodeTime: v.video_duration,
-                 desc: v.video_description,
-                 category: "series",
-                 season_id: season.season_id,
-                 video_id: v.video_id,
-               }));
+              relatedVideos = season.season_videos.map(v => ({
+                id: `series-${season.season_id}-${v.video_id}`,
+                videoSrc: v.video_url,
+                imgSrc: v.video_poster,
+                episodeTitle: v.video_name,
+                episodeTime: v.video_duration,
+                desc: v.video_description,
+                category: "series",
+                season_id: season.season_id,
+                video_id: v.video_id,
+              }));
             }
           } else {
             relatedVideos = filmsData.slice(0, 10);
@@ -133,7 +133,7 @@ function App() {
                     <p>{selectedVideo.desc}</p>
                   </div>
                 </div>
-                
+
                 <div className="player-sidebar-section">
                   <h3 className="sidebar-title">
                     {selectedVideo.category === 'series' ? 'Rest of the Season' : 'More Like This'}
@@ -157,7 +157,7 @@ function App() {
 
         {currentView === 'home' && (
           <div className="sliders-container">
-             {/* TODO: We need to pass onToggleFavorite down through SwiperVideoSlider */}
+            {/* TODO: We need to pass onToggleFavorite down through SwiperVideoSlider */}
             <SwiperVideoSlider id="HomeScreen" title="Favorite" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
             <SwiperVideoSlider id="completedSection" title="Watch again Film" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
             <SwiperVideoSlider id="historySection" title="Continue Watching Film" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
@@ -223,9 +223,9 @@ function App() {
           <div className="grid-container">
             <h1 className="view-title">My Favorites</h1>
             {favorites.length > 0 ? (
-               <VideoGrid data={favorites} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
+              <VideoGrid data={favorites} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
             ) : (
-               <p style={{ color: 'white', padding: '20px' }}>No favorites added yet.</p>
+              <p style={{ color: 'white', padding: '20px' }}>No favorites added yet.</p>
             )}
           </div>
         )}
@@ -264,17 +264,17 @@ function App() {
                 <span>Your changes has been Saved</span>
               </div>
             </div>
-            
+
             <div className="toast-body">
-              <img 
-                className="toast-full-thumbnail" 
-                src={pendingRemoveVideo.imgSrc.startsWith('/') ? pendingRemoveVideo.imgSrc : `/${pendingRemoveVideo.imgSrc}`} 
-                alt={pendingRemoveVideo.episodeTitle} 
+              <img
+                className="toast-full-thumbnail"
+                src={pendingRemoveVideo.imgSrc.startsWith('/') ? pendingRemoveVideo.imgSrc : `/${pendingRemoveVideo.imgSrc}`}
+                alt={pendingRemoveVideo.episodeTitle}
               />
               <div className="toast-video-title">
                 {pendingRemoveVideo.episodeTitle}
               </div>
-              
+
               <div className="toast-action-row">
                 <button className="toast-full-cancel-btn" onClick={cancelPendingRemove}>
                   Cancel Removal

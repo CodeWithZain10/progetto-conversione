@@ -212,6 +212,7 @@
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -278,7 +279,8 @@
 
 .toast-full-cancel-btn {
   width: 100%;
-  background: #3b82f6; /* Bright blue */
+  background: #3b82f6;
+  /* Bright blue */
   color: #fff;
   border: none;
   padding: 12px;
@@ -310,6 +312,7 @@
   0% {
     width: 100%;
   }
+
   100% {
     width: 0%;
   }

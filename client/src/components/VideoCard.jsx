@@ -99,15 +99,15 @@ const VideoCard = ({ video, onClick, onToggleFavorite, onRemoveFavoriteRequest, 
               <span className="tooltip-text">Play now</span>
             </div>
             <div className="tooltip-container">
-              <button 
-                className="action-btn" 
-                onClick={(e) => handleActionClick(e, 'add')} 
+              <button
+                className="action-btn"
+                onClick={(e) => handleActionClick(e, 'add')}
                 style={{ color: isFavorite ? '#fff' : 'inherit', borderColor: isFavorite ? '#fff' : '' }}
                 onMouseEnter={() => isFavorite && setIsRemoveHovered(true)}
                 onMouseLeave={() => isFavorite && setIsRemoveHovered(false)}
               >
                 {isFavorite ? (
-                   // Minus icon when in favorites
+                  // Minus icon when in favorites
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z" /></svg>
                 ) : (
                   // The original plus icon
