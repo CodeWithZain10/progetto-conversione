@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import SwiperVideoSlider from './components/SwiperVideoSlider';
 import VideoGrid from './components/VideoGrid';
+import LandingModal from './components/LandingModal';
 import { filmsData, seriesData, childrenFilmsData, childrenSeriesData, flattenSeriesData } from './data/clientData';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [videoToRemove, setVideoToRemove] = useState(null); // For the first Yes/No modal
   const [pendingRemoveVideo, setPendingRemoveVideo] = useState(null); // For the top-right toast
+  const [landingVideo, setLandingVideo] = useState(null);
 
   // Auto-remove after 3 seconds if the top-right toast is open and not cancelled
   useEffect(() => {
@@ -76,6 +78,10 @@ function App() {
 
   const closePlayer = () => {
     setSelectedVideo(null);
+  };
+
+  const handleLandingClick = (video) => {
+    setLandingVideo(video);
   };
 
   return (
@@ -158,11 +164,11 @@ function App() {
         {currentView === 'home' && (
           <div className="sliders-container">
             {/* TODO: We need to pass onToggleFavorite down through SwiperVideoSlider */}
-            <SwiperVideoSlider id="HomeScreen" title="Favorite" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
-            <SwiperVideoSlider id="completedSection" title="Watch again Film" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
-            <SwiperVideoSlider id="historySection" title="Continue Watching Film" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
-            <SwiperVideoSlider id="completedSectionSeries" title="Watch again Serie-TV" data={flattenSeriesData(seriesData)} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
-            <SwiperVideoSlider id="historySectionSeries" title="Continue Watching Serie-TV" data={flattenSeriesData(seriesData)} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
+            <SwiperVideoSlider id="HomeScreen" title="Favorite" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
+            <SwiperVideoSlider id="completedSection" title="Watch again Film" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
+            <SwiperVideoSlider id="historySection" title="Continue Watching Film" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
+            <SwiperVideoSlider id="completedSectionSeries" title="Watch again Serie-TV" data={flattenSeriesData(seriesData)} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
+            <SwiperVideoSlider id="historySectionSeries" title="Continue Watching Serie-TV" data={flattenSeriesData(seriesData)} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
           </div>
         )}
 
@@ -170,7 +176,7 @@ function App() {
         {currentView === 'films' && (
           <div className="grid-container">
             <h1 className="view-title">All Films</h1>
-            <VideoGrid data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
+            <VideoGrid data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
           </div>
         )}
 
@@ -205,6 +211,7 @@ function App() {
                   onVideoClick={handleVideoClick}
                   onToggleFavorite={handleToggleFavorite}
                   onRemoveFavoriteRequest={requestRemoveFavorite}
+                  onLandingClick={handleLandingClick}
                   favorites={favorites}
                 />
               );
@@ -215,7 +222,7 @@ function App() {
         {currentView === 'search' && (
           <div className="grid-container">
             <h1 className="view-title">Search Results for "{searchQuery}"</h1>
-            <VideoGrid data={filteredFilms} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
+            <VideoGrid data={filteredFilms} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
           </div>
         )}
 
@@ -223,7 +230,7 @@ function App() {
           <div className="grid-container">
             <h1 className="view-title">My Favorites</h1>
             {favorites.length > 0 ? (
-              <VideoGrid data={favorites} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} favorites={favorites} />
+              <VideoGrid data={favorites} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
             ) : (
               <p style={{ color: 'white', padding: '20px' }}>No favorites added yet.</p>
             )}
@@ -287,6 +294,15 @@ function App() {
             </div>
           </div>
         )}
+
+        <LandingModal 
+          video={landingVideo} 
+          onClose={() => setLandingVideo(null)} 
+          onPlay={(video) => {
+            setLandingVideo(null);
+            handleVideoClick(video);
+          }}
+        />
 
         {/* Other views handled similarly */}
       </main>

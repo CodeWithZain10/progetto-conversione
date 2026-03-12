@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './SwiperVideoSlider.css';
 
-const SwiperVideoSlider = ({ title, data, id, onVideoClick, onToggleFavorite, onRemoveFavoriteRequest, favorites }) => {
+const SwiperVideoSlider = ({ title, data, id, onVideoClick, onToggleFavorite, onRemoveFavoriteRequest, onLandingClick, favorites }) => {
   // Unique navigation and pagination selectors
   const nextEl = `.swiper-button-next-${id}`;
   const prevEl = `.swiper-button-prev-${id}`;
@@ -56,7 +56,7 @@ const SwiperVideoSlider = ({ title, data, id, onVideoClick, onToggleFavorite, on
           >
             {data && data.map((video) => (
               <SwiperSlide key={video.id || Math.random()}>
-                <VideoCard video={video} onClick={onVideoClick} onToggleFavorite={onToggleFavorite} onRemoveFavoriteRequest={onRemoveFavoriteRequest} favorites={favorites} />
+                <VideoCard video={video} onClick={onVideoClick} onToggleFavorite={onToggleFavorite} onRemoveFavoriteRequest={onRemoveFavoriteRequest} onLandingClick={onLandingClick} favorites={favorites} />
               </SwiperSlide>
             ))}
           </Swiper>

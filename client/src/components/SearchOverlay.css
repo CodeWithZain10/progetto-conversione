@@ -3,7 +3,6 @@
 .search-overlay {
     position: fixed;
     top: 68px;
-    /* Below Navbar */
     left: 0;
     width: 100%;
     height: calc(100vh - 68px);

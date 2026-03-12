@@ -1,0 +1,300 @@
+/* LandingModal.css */
+.landing-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #111;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.landing-modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #111;
+}
+
+.landing-header-section {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+}
+
+.landing-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.landing-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.landing-bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(15, 15, 15, 0.95) 100%
+    );
+}
+
+.landing-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.landing-close-btn:hover {
+    color: #e50914;
+    transform: scale(1.1);
+}
+
+.landing-details-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    padding: 40px 60px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-actions {
+    display: flex;
+    align-items: center;
+    gap: 0; /* Butt them up against each other */
+    margin-bottom: 2rem;
+    height: 40px; /* Match heights */
+}
+
+.landing-play-btn {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 0 25px;
+    height: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+    border-radius: 4px 0 0 4px; /* Rounded left side only */
+}
+
+.landing-play-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.landing-season-select select {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-left: none; /* Avoid double border in middle */
+    color: #fff;
+    padding: 0 35px 0 15px;
+    height: 100%;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 0 4px 4px 0; /* Rounded right side only */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    /* Make exact same height as button */
+    box-sizing: border-box; 
+    line-height: normal; /* Fix Mac Safari layout */
+}
+
+.landing-season-select select option {
+    background: #111;
+    color: #fff;
+}
+
+.landing-bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+}
+
+.landing-bottom-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-bottom-nav ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    text-transform: uppercase;
+}
+
+.landing-bottom-nav ul li a:hover,
+.landing-bottom-nav ul li a.active {
+    color: #fff;
+}
+
+.landing-sound-btn {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-sound-btn:hover {
+    color: #fff;
+}
+
+/* --- TAB CONTENT AREA --- */
+.landing-tab-content-area {
+    padding: 60px;
+    background: #0f0f0f;
+    min-height: 50vh;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.landing-tab-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.landing-tab-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    color: #e5e5e5;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+}
+
+.landing-related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.landing-related-card {
+    display: flex;
+    align-items: center;
+    background: #333;
+    border-radius: 16px;
+    padding: 15px;
+    gap: 20px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.landing-related-card:hover {
+    background: #444;
+}
+
+.landing-related-number {
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    width: 40px;
+    text-align: center;
+}
+
+.landing-related-thumbnail {
+    position: relative;
+    width: 200px;
+    height: 112px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.landing-related-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.landing-related-duration {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.landing-related-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.landing-related-info h4 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.landing-related-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
