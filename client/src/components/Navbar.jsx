@@ -12,7 +12,12 @@ const Navbar = ({
     onWatchagainFilm,
     onContinueWatchingMovies,
     onWatchagainSeries,
-    onContinueWatchingSeries
+    onContinueWatchingSeries,
+    onVideoClick,
+    onToggleFavorite,
+    onRemoveFavoriteRequest,
+    onLandingClick,
+    favorites
 }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
@@ -201,6 +206,11 @@ const Navbar = ({
                 onClose={closeSearchOverlay}
                 searchTerm={searchTerm}
                 onTagClick={handleTagClick}
+                onVideoClick={onVideoClick}
+                onToggleFavorite={onToggleFavorite}
+                onRemoveFavoriteRequest={onRemoveFavoriteRequest}
+                onLandingClick={onLandingClick}
+                favorites={favorites}
             />
 
 

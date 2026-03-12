@@ -93,6 +93,11 @@ function App() {
         onChildrClick={() => setCurrentView('children')}
         onChildrseriesClick={() => setCurrentView('childrenSeries')}
         onFavoriteClick={() => setCurrentView('favorites')}
+        onVideoClick={handleVideoClick}
+        onToggleFavorite={handleToggleFavorite}
+        onRemoveFavoriteRequest={requestRemoveFavorite}
+        onLandingClick={handleLandingClick}
+        favorites={favorites}
       />
 
       <main className="main-content">

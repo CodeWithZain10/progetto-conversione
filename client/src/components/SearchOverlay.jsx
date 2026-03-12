@@ -3,7 +3,7 @@ import './SearchOverlay.css';
 import VideoCard from './VideoCard';
 import sourceData from '../data/source.json';
 
-const SearchOverlay = ({ isOpen, onClose, searchTerm, onTagClick }) => {
+const SearchOverlay = ({ isOpen, onClose, searchTerm, onTagClick, onVideoClick, onToggleFavorite, onRemoveFavoriteRequest, onLandingClick, favorites }) => {
     // Flatten data for global search
     const allContent = useMemo(() => {
         const flattened = [];
@@ -109,7 +109,14 @@ const SearchOverlay = ({ isOpen, onClose, searchTerm, onTagClick }) => {
                     {results.length > 0 ? (
                         results.map((video) => (
                             <div key={video.id} className="search-result-item">
-                                <VideoCard video={video} />
+                                <VideoCard 
+                                    video={video} 
+                                    onClick={onVideoClick}
+                                    onToggleFavorite={onToggleFavorite}
+                                    onRemoveFavoriteRequest={onRemoveFavoriteRequest}
+                                    onLandingClick={onLandingClick}
+                                    favorites={favorites}
+                                />
                             </div>
                         ))
                     ) : searchTerm ? (
