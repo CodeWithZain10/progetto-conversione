@@ -73,6 +73,21 @@
     transition: 0.35s ease;
 }
 
+.micro.listening svg {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.micro:hover svg {
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
 .burger-line {
     position: absolute;
     display: block;

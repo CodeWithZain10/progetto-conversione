@@ -98,7 +98,7 @@ const VideoCard = ({ video, onClick, onToggleFavorite, onRemoveFavoriteRequest, 
               <button className="action-btn" onClick={(e) => handleActionClick(e, 'play')}>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
               </button>
-              <span className="tooltip-text">Play now</span>
+              <span className="tooltip-text">Riproduci ora</span>
             </div>
             <div className="tooltip-container">
               <button
@@ -116,7 +116,7 @@ const VideoCard = ({ video, onClick, onToggleFavorite, onRemoveFavoriteRequest, 
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
                 )}
               </button>
-              <span className="tooltip-text">{isFavorite ? "Remove it" : "Add it"}</span>
+              <span className="tooltip-text">{isFavorite ? "Rimuovi" : "Aggiungi"}</span>
             </div>
             {/* Landing Action Button */}
             <div className="tooltip-container">
@@ -126,10 +126,14 @@ const VideoCard = ({ video, onClick, onToggleFavorite, onRemoveFavoriteRequest, 
                   <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
                 </svg>
               </button>
-              <span className="tooltip-text">Landing</span>
+              <span className="tooltip-text">Maggiori Info</span>
             </div>
           </div>
         </div>
+        
+        {video.desc && (
+            <p className="video-card-desc">{video.desc}</p>
+        )}
 
         {/* Progress Bar at the very bottom */}
         <div className="progress-container">

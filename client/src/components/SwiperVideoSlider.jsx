@@ -19,21 +19,14 @@ const SwiperVideoSlider = ({ title, data, id, onVideoClick, onToggleFavorite, on
     <section id={id} className="py-5 flix-parents" style={{ zIndex: 20 }}>
       <div className="filter"></div>
       <h4 className="completehome__title">
-        {title} <span>&nbsp;&nbsp;</span>
-        <span
-          className="completehome__value"
-          style={{ cursor: 'pointer', color: '#007bff' }}
-        >
-          Browse All
-        </span>
-        <span className="completehome__cursor">&gt;</span>
+        {title} <span className="completehome__cursor">&gt;</span>
       </h4>
 
       <div className="mpp-dot wraphome mpp-skin-sirius-trans mpp-controls-tr mpp-no-grid">
         <div className="swiper-video-slider-container">
           <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={20}
+            spaceBetween={2}
             slidesPerView={1.5}
             slidesPerGroup={1}
             navigation={{
@@ -45,14 +38,17 @@ const SwiperVideoSlider = ({ title, data, id, onVideoClick, onToggleFavorite, on
               clickable: true,
             }}
             breakpoints={{
-              480: { slidesPerView: 2.2 },
-              768: { slidesPerView: 3.2 },
-              1024: { slidesPerView: 4.2 },
-              1400: { slidesPerView: 6.2 } // Back to smaller cards
+              320: { slidesPerView: 1.5 },
+              480: { slidesPerView: 2.5 },
+              768: { slidesPerView: 3.5 },
+              1024: { slidesPerView: 4.5 },
+              1400: { slidesPerView: 5.5 }, 
+              1920: { slidesPerView: 6.5 }
             }}
+            watchOverflow={true}
             className="homeSlider"
-            slidesOffsetBefore={40}
-            slidesOffsetAfter={40}
+            slidesOffsetBefore={0}
+            slidesOffsetAfter={0}
           >
             {data && data.map((video) => (
               <SwiperSlide key={video.id || Math.random()}>

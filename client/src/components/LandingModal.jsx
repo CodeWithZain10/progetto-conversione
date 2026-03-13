@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './LandingModal.css';
 
+import { seriesData } from '../data/clientData';
+
 const LandingModal = ({ video, onClose, onPlay }) => {
   const [isMuted, setIsMuted] = useState(true);
-  const [activeTab, setActiveTab] = useState('film'); // 'film', 'playlist', 'descrizione', 'related'
+  const [activeTab, setActiveTab] = useState(video?.category === 'series' || video?.category === 'anime' ? 'playlist' : 'film'); 
 
   useEffect(() => {
     // Prevent background scrolling when overlay is active
@@ -57,11 +59,34 @@ const LandingModal = ({ video, onClose, onPlay }) => {
               <button className="landing-play-btn" onClick={handlePlayVideo}>
                 <i className="fas fa-play"></i> Play Video
               </button>
-              <div className="landing-season-select">
-                <select defaultValue="Season 1">
-                  <option value="Season 1">Season 1</option>
-                </select>
-              </div>
+              {(video.category === 'series' || video.category === 'anime') && (
+                <div className="landing-season-select">
+                  <select defaultValue="Season 1">
+                    <option value="Season 1">Season 1</option>
+                  </select>
+                </div>
+              )}
+            </div>
+            
+            <div className="landing-metadata">
+              {video.category && (
+                <div className="studios">
+                  <span className="studios__title">Categories:</span>
+                  <span className="studios__text">{video.category}</span>
+                </div>
+              )}
+              {video.authors && (
+                <div className="studios">
+                  <span className="studios__title">Actors:</span>
+                  <span className="studios__text">{video.authors}</span>
+                </div>
+              )}
+              {video.studios && (
+                <div className="studios">
+                  <span className="studios__title">Studios:</span>
+                  <span className="studios__text">{video.studios}</span>
+                </div>
+              )}
             </div>
             
             <div className="landing-bottom-nav">
@@ -112,8 +137,36 @@ const LandingModal = ({ video, onClose, onPlay }) => {
                </div>
              </div>
            )}
+           {activeTab === 'playlist' && (
+             <div className="landing-tab-pane">
+               <h2 className="landing-tab-title">Episodes</h2>
+               <div className="landing-playlist-row">
+                 {seriesData.map((ep, idx) => (
+                   <div 
+                     className={`landing-playlist-card ${video.id === ep.id ? 'active' : ''}`} 
+                     key={ep.id}
+                     onClick={() => {
+                        if (onPlay) onPlay(ep);
+                     }}
+                   >
+                     <div className="landing-playlist-thumbnail">
+                       <img src={ep.imgSrc.startsWith('/') ? ep.imgSrc : `/${ep.imgSrc}`} alt={ep.episodeTitle} />
+                       <i className="fas fa-play play-icon"></i>
+                     </div>
+                     <div className="landing-playlist-info">
+                       <div className="landing-playlist-header">
+                         <h4>{idx + 1}. {ep.episodeTitle}</h4>
+                         <span>{ep.episodeTime || '24m'}</span>
+                       </div>
+                       <p>{ep.desc}</p>
+                     </div>
+                   </div>
+                 ))}
+               </div>
+             </div>
+           )}
            {/* Fallback for empty tabs */}
-           {(activeTab === 'film' || activeTab === 'playlist') && (
+           {(activeTab === 'film') && (
                <div className="landing-tab-pane empty">
                   <h2 className="landing-tab-title" style={{textTransform: 'capitalize'}}>{activeTab}</h2>
                </div>

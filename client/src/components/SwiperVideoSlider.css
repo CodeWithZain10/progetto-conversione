@@ -8,7 +8,7 @@
 
 .swiper-video-slider-container {
   position: relative;
-  padding: 0 60px;
+  padding: 0 4%;
   width: 100%;
   display: block;
 }
@@ -30,11 +30,13 @@
 /* Title Styles */
 .completehome__title {
   font-family: 'Merriweather Sans', sans-serif;
-  padding-left: 60px;
+  padding-left: 4%; /* Match navbar alignment */
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: #fff;
-  font-size: 24px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .completehome__value {
@@ -73,19 +75,28 @@
   right: 5px !important;
 }
 
-/* Pagination Dots */
+/* Pagination Dots (Dashes to match Client UI) */
 .swiper-pagination-custom {
-  bottom: -5px !important;
+  bottom: -20px !important;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
 .swiper-pagination-custom .swiper-pagination-bullet {
-  background: #fff !important;
+  width: 24px !important;
+  height: 6px !important;
+  background: #0088cc !important; /* Client-style blue */
   opacity: 0.5;
+  border-radius: 0 !important; /* Square dashes */
+  margin: 0 !important;
+  transition: all 0.3s ease;
 }
 
 .swiper-pagination-custom .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #e50914 !important;
+  background: #00eeff !important; /* Highlight blue/cyan */
+  width: 32px !important;
 }
 
 @media (max-width: 768px) {

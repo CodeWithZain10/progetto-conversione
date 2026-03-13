@@ -1,55 +1,19 @@
 import React, { useMemo } from 'react';
 import './SearchOverlay.css';
 import VideoCard from './VideoCard';
-import sourceData from '../data/source.json';
+import { filmsData, seriesData } from '../data/clientData';
 
 const SearchOverlay = ({ isOpen, onClose, searchTerm, onTagClick, onVideoClick, onToggleFavorite, onRemoveFavoriteRequest, onLandingClick, favorites }) => {
     // Flatten data for global search
     const allContent = useMemo(() => {
         const flattened = [];
 
-        // Add films
-        if (sourceData.films) {
-            sourceData.films.forEach(item => flattened.push({ ...item, type: 'film' }));
+        if (filmsData) {
+            filmsData.forEach(item => flattened.push({ ...item, type: 'film' }));
         }
 
-        // Add series episodes
-        if (sourceData.series) {
-            sourceData.series.forEach(season => {
-                season.season_videos.forEach(video => {
-                    flattened.push({
-                        ...video,
-                        id: `series-${video.video_id}`,
-                        episodeTitle: video.video_name,
-                        desc: video.video_description,
-                        imgSrc: video.video_poster,
-                        videoSrc: video.video_url,
-                        type: 'series'
-                    });
-                });
-            });
-        }
-
-        // Add children films
-        if (sourceData.childrenFilms) {
-            sourceData.childrenFilms.forEach(item => flattened.push({ ...item, type: 'children' }));
-        }
-
-        // Add children series
-        if (sourceData.childrenSeries) {
-            sourceData.childrenSeries.forEach(season => {
-                season.season_videos.forEach(video => {
-                    flattened.push({
-                        ...video,
-                        id: `child-series-${video.video_id}`,
-                        episodeTitle: video.video_name,
-                        desc: video.video_description,
-                        imgSrc: video.video_poster,
-                        videoSrc: video.video_url,
-                        type: 'children-series'
-                    });
-                });
-            });
+        if (seriesData) {
+            seriesData.forEach(item => flattened.push({ ...item, type: 'series' }));
         }
 
         return flattened;
