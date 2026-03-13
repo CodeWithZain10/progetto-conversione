@@ -536,6 +536,56 @@
 /* Scrollbar for Playlist */
 .playlist-scroll-area::-webkit-scrollbar {
   width: 6px;
+}/* Preloader Overlay */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #030512;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.preloader-content {
+  text-align: center;
+  width: 300px;
+}
+
+.loading-logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #0088cc, #00eeff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.loading-bar-tracker {
+  width: 100%;
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-bar-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #0088cc, #00eeff);
+  animation: loadProgress 2s ease-in-out forwards;
+}
+
+@keyframes loadProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 .playlist-scroll-area::-webkit-scrollbar-track {
   background: transparent;

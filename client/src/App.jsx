@@ -18,6 +18,14 @@ function App() {
   const [pendingRemoveVideo, setPendingRemoveVideo] = useState(null); // For the top-right toast
   const [landingVideo, setLandingVideo] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Auto-remove after 3 seconds if the top-right toast is open and not cancelled
   useEffect(() => {
@@ -115,6 +123,16 @@ function App() {
 
   return (
     <div className="app-container">
+      {loading && (
+        <div className="preloader-overlay">
+          <div className="preloader-content">
+            <div className="loading-logo">ULTRA VIDEO</div>
+            <div className="loading-bar-tracker">
+              <div className="loading-bar-progress"></div>
+            </div>
+          </div>
+        </div>
+      )}
       <Navbar
         onHomeClick={() => setCurrentView('home')}
         onFilmClick={() => setCurrentView('films')}
@@ -248,10 +266,6 @@ function App() {
           <div className="sliders-container" style={{ paddingTop: '50px' }}>
             <SwiperVideoSlider id="films-watch-again" title="Watch again Film >" data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
             <SwiperVideoSlider id="films-continue-watching" title="Continue Watching Film >" data={history.filter(v => v.category !== 'series')} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
-            <div className="grid-container" style={{ paddingTop: '20px' }}>
-              <h1 className="view-title">All Films</h1>
-              <VideoGrid data={filmsData} onVideoClick={handleVideoClick} onToggleFavorite={handleToggleFavorite} onRemoveFavoriteRequest={requestRemoveFavorite} onLandingClick={handleLandingClick} favorites={favorites} />
-            </div>
           </div>
         )}
 

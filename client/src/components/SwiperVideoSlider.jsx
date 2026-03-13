@@ -38,17 +38,17 @@ const SwiperVideoSlider = ({ title, data, id, onVideoClick, onToggleFavorite, on
               clickable: true,
             }}
             breakpoints={{
-              320: { slidesPerView: 1.5 },
-              480: { slidesPerView: 2.5 },
-              768: { slidesPerView: 3.5 },
-              1024: { slidesPerView: 4.5 },
-              1400: { slidesPerView: 5.5 }, 
-              1920: { slidesPerView: 6.5 }
+              320: { slidesPerView: 1.2 },
+              480: { slidesPerView: 1.8 },
+              768: { slidesPerView: 2.5 },
+              1024: { slidesPerView: 3.5 },
+              1400: { slidesPerView: 4.2 }, 
+              1920: { slidesPerView: 5.2 }
             }}
+            slidesOffsetBefore={60}
+            slidesOffsetAfter={60}
             watchOverflow={true}
             className="homeSlider"
-            slidesOffsetBefore={0}
-            slidesOffsetAfter={0}
           >
             {data && data.map((video) => (
               <SwiperSlide key={video.id || Math.random()}>
